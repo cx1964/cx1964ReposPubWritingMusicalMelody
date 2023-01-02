@@ -41,11 +41,11 @@ mu.set_environment(MUSESCOREPROGPATH, MUSESCOREPROG)
 modeProperties = mu.get_mode_properties('phrygian')
 finalis      = modeProperties['finalis']
 ambititus    = modeProperties['ambititus']
-intervalListString = modeProperties['intervalListString']
+scaleDegrees = modeProperties['scaleDegrees']
 # debug
 print('finalis:', finalis)
 print('ambititus:', ambititus)
-print('intervalListString:', intervalListString)
+print('scaleDegrees:', scaleDegrees)
 
 # <Idee>:
 # Kan alle noten genereren door met een functie over alle elementen van intervalListString intevalListSting

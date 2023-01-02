@@ -1,8 +1,9 @@
-# File: note_utils.py
+# File: muisc_utils.py
 # Function: module met diverse utility functies:
 #           - Convert note to noteValue and
 #           - convert noteValue to note
 #           - set environment
+# Author: cx1964
 
 import music21 as m
 
@@ -197,10 +198,10 @@ def play_note(noot):
 def get_mode_properties(modeString):
     # Doc: https://en.wikipedia.org/wiki/Mode_(music)
     mode = {
-        'dorian'    : { 'finalis': 'd', 'ambititus': 'd-d', 'dominant': 'a', 'intervalListString': 'M2,M3, 4,5,6,7'  }
-       ,'hypodorian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominant': 'f', 'intervalListString': '2,3,4,5,6,7'  } 
+        'dorian'    : { 'finalis': 'd', 'ambititus': 'd-d', 'dominant': 'a', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  }
+       ,'hypodorian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominant': 'f', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  } 
 
-       ,'phrygian'  : { 'finalis': 'e', 'ambititus': 'e-e', 'dominant': 'c', 'intervalListString': 'm2,3,4,5,6,7'  }     
+       ,'phrygian'  : { 'finalis': 'e', 'ambititus': 'e-e', 'dominant': 'c', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  }     
     }
     return(mode[modeString])
 # end set_mode_properties
@@ -213,7 +214,7 @@ def generate_mode(finalis):
 
   params
 
-  
+  return   
   ''' 
 
 # End generate_mode     
