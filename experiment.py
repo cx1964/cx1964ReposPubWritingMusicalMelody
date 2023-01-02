@@ -8,7 +8,7 @@
 reeks = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 toonladder = list()
 start_index = 0 
-grondtoon = 'f' # dit wordt een parameter
+grondtoon = 'c' # dit wordt een parameter
 
 start = grondtoon  
 for i in range(0,7,1):
@@ -41,4 +41,13 @@ toonladder = toonladder+toevoeging
 # return toonladder
 
 # debug
-#print(toonladder)
+print(toonladder)
+
+# test waarden start in ['a', 'b', 'f', 'g']
+# gaat goed voor b, f en g
+
+# BUG !!!!!!
+# gaat nog fout als start = a == komt waarschijnlijk door de 0 in reeks[0:aantal_ontbrekende] ;
+#                                     startindex bereken op verschil tussen
+#                                     grondtoon en a  
+
