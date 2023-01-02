@@ -47,9 +47,14 @@ print('finalis:', finalis)
 print('ambititus:', ambititus)
 print('scaleDegrees:', scaleDegrees)
 
+
+scale = mu.generate_mode('dorian', 'd' )
+print('scale:', scale )
+
 # <Idee>:
 # Kan alle noten genereren door met een functie over alle elementen van intervalListString intevalListSting
 # te lopen en dan voor die element obv de finalis en het betreffende element de noten bepalen. 
 # Laat deze functie dan een List van noten terug geven.  
+
 
 print("Klaar")

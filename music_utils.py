@@ -195,18 +195,50 @@ def play_note(noot):
     sp.play() 
 
 
+
+
+# Ionian     1  2  3  4  5  6  7  1   common (major scale)
+# Dorian     1  2 ♭3  4  5  6 ♭7  1   common
+# Phrygian   1 ♭2 ♭3  4  5 ♭6 ♭7  1   rare except Spanish and moorish
+# Lydian     1  2  3 #4  5  6  7  1   rare except some Eastern and liturgical
+# Mixolydian 1  2  3  4  5  6 ♭7  1   common
+# Aeolian    1  2 ♭3  4  5 ♭6 ♭7  1   common (relative minor)
+# Locrian    1 ♭2 ♭3  4 ♭5 ♭6 ♭7  1   very rare
+
+
 def get_mode_properties(modeString):
     # Doc: https://en.wikipedia.org/wiki/Mode_(music)
     mode = {
-        'dorian'    : { 'finalis': 'd', 'ambititus': 'd-d', 'dominant': 'a', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  }
-       ,'hypodorian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominant': 'f', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  } 
+        # betekenis symbolen in scaleDegrees:
+        # - = mol = b = verlaging
+        # # = kruis = verhoging
 
-       ,'phrygian'  : { 'finalis': 'e', 'ambititus': 'e-e', 'dominant': 'c', 'scaleDegrees': ['M2','M3', '4','5','6','7', '']  }     
+        'ionian'      : { 'finalis': 'c', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+      #, 'hypo ..' 
+
+       ,'dorian'      : { 'finalis': 'd', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '' , '-']  }
+      #,'hypodorian'  : { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '3', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+
+       ,'phrygian'    : { 'finalis': 'e', 'ambititus': '1-1', 'dominantScaleDegree': '6', 'scaleDegrees': ['' , '-', '-', '' , '' , '-', '-']  } 
+      #,'hypophrygian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '4', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+
+       ,'lydian'      : { 'finalis': 'f', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '#', '' , '' , '' ]  } 
+      #, 'hypo ..' 
+                    
+       ,'mixolydian'  : { 'finalis': 'g', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '-']  } 
+      #, 'hypo ..' 
+
+       ,'aeolian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '-', '-']  } 
+      #, 'hypo ..' 
+
+       ,'Locrian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '-', '-', '' , '-', '-', '-']  } 
+      #, 'hypo ..' 
+
     }
     return(mode[modeString])
 # end set_mode_properties
 
-def generate_mode(finalis):
+def generate_mode(mode, finalis):
   '''
   Synopsis
 
@@ -216,5 +248,30 @@ def generate_mode(finalis):
 
   return   
   ''' 
+
+  scale = list(finalis)
+  count=0
+
+  modeProperties = get_mode_properties(mode)
+  scaleDegrees = modeProperties['scaleDegrees']
+  
+  # debug
+  # print ('in function <generate_mode> ', 'scaleDegrees:', scaleDegrees)
+
+
+  ### ToDo
+  ### Hieronder afmaken
+
+  # loop over de scaleDegrees
+  for d in scaleDegrees:
+    # bereken per element uit scale degree de noot van de scale
+    # debug:
+    print('scaleDegree: ',d)
+    count=count+1
+
+    #scale = 
+
+  
+  return (scale)
 
 # End generate_mode     
