@@ -262,6 +262,7 @@ def generate_mode(mode, finalis):
   ### ToDo1
   ### Hieronder afmaken
   # nog maken: genereer toonladder die start op gegeven grondtoon (dwz de finalis) en eindigd op grondtoon  
+  # Tip: maak voor het genereren van een toonladder gebruik van een loop van cijfers
 
   scale = list()
   count=0
