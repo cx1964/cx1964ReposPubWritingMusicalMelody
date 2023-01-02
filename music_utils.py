@@ -197,10 +197,10 @@ def play_note(noot):
 def get_mode_properties(modeString):
     # Doc: https://en.wikipedia.org/wiki/Mode_(music)
     mode = {
-        'dorian'    : { 'finalis': 'd', 'ambititus': 'd-d', 'dominant': 'a', 'intervalListString': '1,1,1'  }
-       ,'hypodorian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominant': 'f', 'intervalListString': '1,1,1'  } 
+        'dorian'    : { 'finalis': 'd', 'ambititus': 'd-d', 'dominant': 'a', 'intervalListString': 'M2,M3, 4,5,6,7'  }
+       ,'hypodorian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominant': 'f', 'intervalListString': '2,3,4,5,6,7'  } 
 
-       ,'phrygian'  : { 'finalis': 'e', 'ambititus': 'e-e', 'dominant': 'c', 'intervalListString': '1,1,1'  }     
+       ,'phrygian'  : { 'finalis': 'e', 'ambititus': 'e-e', 'dominant': 'c', 'intervalListString': 'm2,3,4,5,6,7'  }     
     }
     return(mode[modeString])
 # end set_mode_properties
