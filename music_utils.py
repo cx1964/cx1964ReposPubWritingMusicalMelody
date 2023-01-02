@@ -239,6 +239,9 @@ def get_mode_properties(modeString):
 # end set_mode_properties
 
 def generate_mode(mode, finalis):
+  # let op gebruik in eerste instantie een finalis zonder voortekens
+  # test ook dat finalis geen voortekens heeft
+
   '''
   Synopsis
 
@@ -249,9 +252,6 @@ def generate_mode(mode, finalis):
   return   
   ''' 
 
-  scale = list(finalis)
-  count=0
-
   modeProperties = get_mode_properties(mode)
   scaleDegrees = modeProperties['scaleDegrees']
   
@@ -259,19 +259,29 @@ def generate_mode(mode, finalis):
   # print ('in function <generate_mode> ', 'scaleDegrees:', scaleDegrees)
 
 
-  ### ToDo
+  ### ToDo1
   ### Hieronder afmaken
+  # nog maken: genereer toonladder die start op gegeven grondtoon (dwz de finalis) en eindigd op grondtoon  
+
+  scale = list()
+  count=0
+
 
   # loop over de scaleDegrees
   for d in scaleDegrees:
+    
     # bereken per element uit scale degree de noot van de scale
+    # betreffende scaleDegree zit nu in d
     # debug:
     print('scaleDegree: ',d)
+
+    ### ToDo2
+    ### vervang '<test>' voor betreffende element uit een genereerde toonladder 
+    degree = '<test>' # nog bepalen. Haal die uit de gegenereerde toonlader. Neem het count-ste element
+    noot = degree + d
+    scale.append(noot)
     count=count+1
-
-    #scale = 
-
-  
+      
   return (scale)
 
 # End generate_mode     
