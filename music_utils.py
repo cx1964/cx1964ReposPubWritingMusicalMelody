@@ -263,17 +263,17 @@ def generate_scale(tonic:str):
 # generate_scale
 
 
-# Ionian     1  2  3  4  5  6  7  1   common (major scale)
-# Dorian     1  2 ♭3  4  5  6 ♭7  1   common
-# Phrygian   1 ♭2 ♭3  4  5 ♭6 ♭7  1   rare except Spanish and moorish
-# Lydian     1  2  3 #4  5  6  7  1   rare except some Eastern and liturgical
-# Mixolydian 1  2  3  4  5  6 ♭7  1   common
-# Aeolian    1  2 ♭3  4  5 ♭6 ♭7  1   common (relative minor)
-# Locrian    1 ♭2 ♭3  4 ♭5 ♭6 ♭7  1   very rare
-
-
 def get_mode_properties(mode:str):
   # Doc: https://en.wikipedia.org/wiki/Mode_(music)
+  
+  # Ionian     1  2  3  4  5  6  7 1   common (major scale)
+  # Dorian     1  2 b3  4  5  6 b7 1   common
+  # Phrygian   1 b2 b3  4  5 b6 b7 1   rare except Spanish and moorish
+  # Lydian     1  2  3 #4  5  6  7 1   rare except some Eastern and liturgical
+  # Mixolydian 1  2  3  4  5  6 b7 1   common
+  # Aeolian    1  2 b3  4  5 b6 b7 1   common (relative minor)
+  # Locrian    1 b2 b3  4 b5 b6 b7 1   very rare
+
   '''
   Synopsis This function gets the properties of a given musical mode 
 
