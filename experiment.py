@@ -8,24 +8,27 @@
 reeks = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 toonladder = list()
 start_index = 0 
-grondtoon = 'c' # dit wordt een parameter
+grondtoon = 'a' # dit wordt een parameter
 
-start = grondtoon  
-for i in range(0,7,1):
-    if start == reeks[i]:
-       # debug 
-       # print(reeks[i])
-       toonladder.append(reeks[i])
-       start_index = i
-    else:
-       if  start_index != 0 :
-           #  debug  
-           # print(reeks[i])
-           toonladder.append(reeks[i])
-       i=i+1    
+if grondtoon != 'a':
+  start = grondtoon  
+  for i in range(0,7,1):
+      if start == reeks[i]:
+         # debug 
+         # print(reeks[i])
+         toonladder.append(reeks[i])
+         start_index = i
+      else:
+         if  start_index != 0 :
+             #  debug  
+             # print(reeks[i])
+             toonladder.append(reeks[i])
+         i=i+1    
+  huidige_lengte = len(toonladder)
+else:
+  huidige_lengte = 0  
 
 # nog aanvullen na g en beginnen bij a
-huidige_lengte = len(toonladder)
 
 #debug
 #print(toonladder)
@@ -38,6 +41,10 @@ toevoeging = reeks[0:aantal_ontbrekende]
 #print(toevoeging)
 
 toonladder = toonladder+toevoeging
+
+if grondtoon == 'a':
+   toonladder.append(grondtoon)
+
 # return toonladder
 
 # debug
@@ -45,9 +52,3 @@ print(toonladder)
 
 # test waarden start in ['a', 'b', 'f', 'g']
 # gaat goed voor b, f en g
-
-# BUG !!!!!!
-# gaat nog fout als start = a == komt waarschijnlijk door de 0 in reeks[0:aantal_ontbrekende] ;
-#                                     startindex bereken op verschil tussen
-#                                     grondtoon en a  
-
