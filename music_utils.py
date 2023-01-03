@@ -194,7 +194,73 @@ def play_note(noot):
     sp = m.midi.realtime.StreamPlayer(stream1)
     sp.play() 
 
+def generate_scale(tonic:str):
+  '''
+  Synopsis This function creates a scale based on a given tonic
 
+  Arguments: 
+
+    tonic: A string which defines the tonic of the scale. In this version the tonic can not have accidentals. 
+
+  Returns:
+    none: When incorrect tonic is provided
+    scale: When a valid tonic is provided, this functions returns the notes of the scale as a List of strings 
+  '''
+  
+  # initialisaties
+  reeks = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+  toonladder = list()
+  start_index = 0 
+  grondtoon = tonic
+
+  # test arguments
+  if (len(tonic) > 1) or (tonic not in reeks):
+     print('Incorrect tonic: ', tonic)
+
+     ### Temporary for this version
+     if (len(tonic) >= 2) and (tonic[1] in ('#', 'b', '-')):
+        print('Tonic can not have accidentals') 
+     return(None)
+     ### Temporary for this version
+
+  if grondtoon != 'a':
+    start = grondtoon  
+    for i in range(0,7,1):
+        if start == reeks[i]:
+           # debug 
+           # print(reeks[i])
+           toonladder.append(reeks[i])
+           start_index = i
+        else:
+           if  start_index != 0 :
+               #  debug  
+               # print(reeks[i])
+               toonladder.append(reeks[i])
+           i=i+1    
+    huidige_lengte = len(toonladder)
+  else:
+    huidige_lengte = 0  
+  # nog aanvullen na g en beginnen bij a
+
+  #debug
+  #print(toonladder)
+  #print('lengte ', huidige_lengte )
+
+  aantal_ontbrekende = 8 - huidige_lengte
+  #debug
+  #print('aantal_ontbrekende ', aantal_ontbrekende )
+  
+  toevoeging = reeks[0:aantal_ontbrekende]
+  #debug
+  #print(toevoeging)
+  
+  toonladder = toonladder+toevoeging
+  
+  if grondtoon == 'a':
+     toonladder.append(grondtoon)
+
+  return(toonladder)
+# generate_scale
 
 
 # Ionian     1  2  3  4  5  6  7  1   common (major scale)
@@ -206,36 +272,68 @@ def play_note(noot):
 # Locrian    1 ♭2 ♭3  4 ♭5 ♭6 ♭7  1   very rare
 
 
-def get_mode_properties(modeString):
-    # Doc: https://en.wikipedia.org/wiki/Mode_(music)
-    mode = {
+def get_mode_properties(mode:str):
+  # Doc: https://en.wikipedia.org/wiki/Mode_(music)
+  '''
+  Synopsis This function gets the properties of a given musical mode 
+
+  Arguments: 
+
+    mode: A string which defines a musical mode.
+  
+    The musical modes are:
+
+      'ionian', 
+      'hypo ..', 
+      'dorian', 
+      'hypodorian', 
+      'phrygian', 
+      'hypophrygian',  
+      'lydian', 
+      'hypo ..', 
+      'mixolydian', 
+      'hypo ..', 
+      'aeolian', 
+      'hypo ..', 
+      'locrian', 
+      'hypo ..', 
+
+  Returns:
+    The properties as a string of a given musical mode: When a valid mode is provided, this functions returns its properies
+    The properties are:
+    scaleDegrees
+    dominantScaleDegree 
+    finalis
+    ambitius
+    dominantScaleDegree 
+  '''
+  modes = {
         # betekenis symbolen in scaleDegrees:
         # - = mol = b = verlaging
         # # = kruis = verhoging
 
-        'ionian'      : { 'finalis': 'c', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+        'ionian'      : { 'finalis': 'c', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' , '' ]  } 
       #, 'hypo ..' 
 
-       ,'dorian'      : { 'finalis': 'd', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '' , '-']  }
-      #,'hypodorian'  : { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '3', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+       ,'dorian'      : { 'finalis': 'd', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '' , '-', '']  }
+      #,'hypodorian'  : { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '3', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' , '']  } 
 
-       ,'phrygian'    : { 'finalis': 'e', 'ambititus': '1-1', 'dominantScaleDegree': '6', 'scaleDegrees': ['' , '-', '-', '' , '' , '-', '-']  } 
-      #,'hypophrygian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '4', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' ]  } 
+       ,'phrygian'    : { 'finalis': 'e', 'ambititus': '1-1', 'dominantScaleDegree': '6', 'scaleDegrees': ['' , '-', '-', '' , '' , '-', '-', '']  } 
+      #,'hypophrygian': { 'finalis': 'd', 'ambititus': 'a-a', 'dominantScaleDegree': '4', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '' , '']  } 
 
-       ,'lydian'      : { 'finalis': 'f', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '#', '' , '' , '' ]  } 
+       ,'lydian'      : { 'finalis': 'f', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '#', '' , '' , '' , '']  } 
       #, 'hypo ..' 
                     
-       ,'mixolydian'  : { 'finalis': 'g', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '-']  } 
+       ,'mixolydian'  : { 'finalis': 'g', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '' , '' , '' , '' , '-', '']  } 
       #, 'hypo ..' 
 
-       ,'aeolian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '-', '-']  } 
+       ,'aeolian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '' , '-', '' , '' , '-', '-', '']  } 
       #, 'hypo ..' 
 
-       ,'Locrian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '-', '-', '' , '-', '-', '-']  } 
+       ,'locrian'     : { 'finalis': 'a', 'ambititus': '1-1', 'dominantScaleDegree': '5', 'scaleDegrees': ['' , '-', '-', '' , '-', '-', '-', '']  } 
       #, 'hypo ..' 
-
-    }
-    return(mode[modeString])
+  }
+  return(modes[mode])
 # end set_mode_properties
 
 def generate_mode(mode, finalis):

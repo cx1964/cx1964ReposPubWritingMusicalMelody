@@ -57,4 +57,17 @@ print('scale:', scale )
 # Laat deze functie dan een List van noten terug geven.  
 
 
-print("Klaar")
+# Test
+print("Test function generate_scale()")
+s=mu.generate_scale('c')
+print(s)
+s=mu.generate_scale('g')
+print(s)
+s=mu.generate_scale('a')
+print(s)
+#x=mu.generate_scale('c#')
+#x=mu.generate_scale('c++')
+#x=mu.generate_scale('h')
+#x=mu.generate_scale('k')
+
+print("Finished")
