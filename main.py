@@ -52,10 +52,11 @@ scale = mu.generate_mode('dorian', 'd' )
 print('scale:', scale )
 
 # <Idee>:
-# Kan alle noten genereren door met een functie over alle elementen van intervalListString intevalListSting
-# te lopen en dan voor die element obv de finalis en het betreffende element de noten bepalen. 
-# Laat deze functie dan een List van noten terug geven.  
-
+# begin: nog weg halen ###
+#    Kan alle noten genereren door met een functie over alle elementen van intervalListString intevalListSting
+#    te lopen en dan voor die element obv de finalis en het betreffende element de noten bepalen. 
+#    Laat deze functie dan een List van noten terug geven.  
+# einde: nog weg halen ###
 
 # Test
 print("Test function generate_scale()")
