@@ -59,20 +59,22 @@ def generate_scale(tonic:str):
   '''
   Synopsis This function creates a scale based on a given tonic
 
-  Params  
+  Arguments: 
 
-    tonic:
-    A string which defines the tonic of the scale. 
-    In this version the tonic can not have accidentals. 
+    tonic: A string which defines the tonic of the scale. In this version the tonic can not have accidentals. 
 
+  Returns:
+    none: When incorrect tonic is provided
+    scale: When a valid tonic is provided, this functions returns the notes of the scale as a List of strings 
   '''
+  
   # initialisaties
   reeks = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
   toonladder = list()
   start_index = 0 
   grondtoon = tonic
 
-  # test params
+  # test arguments
   if (len(tonic) > 1) or (tonic not in reeks):
      print('Incorrect tonic: ', tonic)
 
