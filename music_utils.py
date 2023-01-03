@@ -352,37 +352,26 @@ def generate_mode(mode:str, finalis:str):
     A list of notes as a string of the musical mode.  
   ''' 
 
+  count=0
+  scale = list()
+ 
   modeProperties = get_mode_properties(mode)
   scaleDegrees = modeProperties['scaleDegrees']
-  
   # debug
   # print ('in function <generate_mode> ', 'scaleDegrees:', scaleDegrees)
 
 
-  ### ToDo1
-  ### Hieronder afmaken
-  # nog maken: genereer toonladder die start op gegeven grondtoon (dwz de finalis) en eindigd op grondtoon  
-  # Tip: maak voor het genereren van een toonladder gebruik van een loop van cijfers
-
-  scale = list()
-  count=0
-
+  gen_scale = generate_scale(finalis)
 
   # loop over de scaleDegrees
   for d in scaleDegrees:
     
-    # bereken per element uit scale degree de noot van de scale
-    # betreffende scaleDegree zit nu in d
+    # Make note from scale degree d and accidental (=gen_scale[count]) 
+
     # debug:
-    print('scaleDegree: ',d)
+    #print('scaleDegree: ',d)
 
-    ### ToDo3
-    ### gebruik generate_scale() om '<test>' te vervangen
-    ### s = generate_scale(finalis) 
-
-    ### ToDo2
-    ### vervang '<test>' voor betreffende element uit een genereerde toonladder 
-    degree = '<test>' # nog bepalen. Haal die uit de gegenereerde toonlader. Neem het count-ste element
+    degree=gen_scale[count]
     noot = degree + d
     scale.append(noot)
     count=count+1

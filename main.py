@@ -3,12 +3,12 @@
 #           
 # Opmerking: Dit script vereist de aanwezigheid van pygame
 #            zie http://www.pygame.org/download.shtml
-#            install Ubuntu 20.04 
+#            install Ubuntu 20.04/22.04 
 #            sudo apt-get install python3-pygame
 #            sudo apt-get install python3-pygame-sdl2
 # 
 #            Dit script vereist de aanwezigheid van timidity
-#            install Ubuntu 20.04 
+#            install Ubuntu 20.04/22.04 
 #            sudo apt-get install timidity
 #
 #            timidity vereist de aanwezigheid van freepats
@@ -43,32 +43,51 @@ finalis      = modeProperties['finalis']
 ambititus    = modeProperties['ambititus']
 scaleDegrees = modeProperties['scaleDegrees']
 # debug
-print('finalis:', finalis)
-print('ambititus:', ambititus)
-print('scaleDegrees:', scaleDegrees)
+#print('finalis:', finalis)
+#print('ambititus:', ambititus)
+#print('scaleDegrees:', scaleDegrees)
 
-
-scale = mu.generate_mode('dorian', 'd' )
-print('scale:', scale )
-
-# <Idee>:
-# begin: nog weg halen ###
-#    Kan alle noten genereren door met een functie over alle elementen van intervalListString intevalListSting
-#    te lopen en dan voor die element obv de finalis en het betreffende element de noten bepalen. 
-#    Laat deze functie dan een List van noten terug geven.  
-# einde: nog weg halen ###
 
 # Test
-print("\n")
-print("debug  in main.py")
-print("onderstaande code weg halen")
-print("Test function generate_scale()")
-s=mu.generate_scale('c')
-print(s)
-s=mu.generate_scale('g')
-print(s)
-s=mu.generate_scale('a')
-print(s)
+print('# Doc: https://en.wikipedia.org/wiki/Mode_(music)')
+scale = mu.generate_mode('dorian', 'd' )
+print('dorian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('dorian', 'c' )
+print('dorian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('phrygian', 'c' )
+print('phrygian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('lydian', 'c' )
+print('lydian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('mixolydian', 'c' )
+print('mixolydian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('aeolian', 'c' )
+print('aeolian ', 'scale:', scale )
+print('\n')
+
+scale = mu.generate_mode('locrian', 'c' )
+print('locrian ', 'scale:', scale )
+print('\n')
+# Test
+#print("\n")
+#print("debug  in main.py")
+#print("onderstaande code weg halen")
+#print("Test function generate_scale()")
+#s=mu.generate_scale('c')
+#print(s)
+#s=mu.generate_scale('g')
+#print(s)
+#s=mu.generate_scale('a')
+#print(s)
 #x=mu.generate_scale('c#')
 #x=mu.generate_scale('c++')
 #x=mu.generate_scale('h')
