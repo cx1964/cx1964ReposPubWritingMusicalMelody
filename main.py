@@ -82,6 +82,10 @@ print('\n')
 m = mu.generate_modal_melody('dorian', 'c', 20)
 print('melodyNoteList: ', m )
 
+print("\n")
+print("ToDo: afmaken de ToDos (= inbouwen rules voor Cantus Firmus) ")
+print("in <music_utils.generate_modal_melody()>")
+
 
 # Test
 #print("\n")

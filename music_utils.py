@@ -393,7 +393,9 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int):
     
     while (c < numNotes):
       ## ToDo1 Tests inbouwen om te bepalen
-      # - of de sprong (interval tussen newNote en vorige  note) niet groter is als maxInterval (= parameter in halfSteps)
+      # - of de sprong (interval tussen newNote en prevNote) niet groter is als maxInterval (in R4, P5 ed)
+      #   en de test uitvoeren om maxInterval om te rekenen naar halfSteps en dit vergelijken met
+      #   verschil in notevalues tussen newNote en prevNote 
       # - of de melodie slechts een maximum bevat (maximum instellen met parameter maxNote) 
       #   alleen note selecteren als er slechts 1 keer deze maximum note in de reeks voorkomt, anders onderdrukken. 
       # - of het aantal sprongen niet meer is dan parameter maxLeaps
@@ -410,7 +412,7 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int):
         differenceNoteValues = getNoteValue(newNote ) - getNoteValue(prevNote)
         print( 'prevNote:', prevNote, ' getNoteValue: ', str(getNoteValue(prevNote)),   
               ' newNote: ', newNote , ' getNoteValue: ', str(getNoteValue(newNote )),
-              ' difference NoteValue: ', str(differenceNoteValues)
+              ' difference NoteValue ([in half steps]): ', str(differenceNoteValues)
              )
 
       # ToDo2
