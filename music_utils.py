@@ -6,6 +6,7 @@
 # Author: cx1964
 
 import music21 as m
+import random
 
 def getNoteValue(noteName):
     # Convert a NoteName in a numeric value
@@ -15,7 +16,7 @@ def getNoteValue(noteName):
                    'C' : 0, 'B-' : 0, 
                    'C#': 1, 'D-' : 1,
                    'D' : 2, 'C##': 2,
-                   'D#': 3, 'Eb' : 3,
+                   'D#': 3, 'E-' : 3,
                    'E' : 4,
 
                    'F' : 5, 'E#' : 5,
@@ -56,7 +57,7 @@ def getNoteName(noteValue, enharmonic=False):
                      0: 'B-' ,
                      1: 'D-' ,
                      2: 'C##',
-                     3: 'Eb' ,
+                     3: 'E-' ,
                      4: 'E'  , # because no enharmonic available. x =def enharmonic(x)
                      5: 'E#' ,
                      6: 'G-' ,
@@ -379,3 +380,46 @@ def generate_mode(mode:str, finalis:str):
   return (scale)
 
 # End generate_mode     
+
+
+def generate_modal_melody(mode:str, tonic:str, numNotes:int):
+    melodyNoteList = list()
+    c = 0
+    prevNote = ''
+
+    scale = generate_mode(mode, tonic)
+    #debug
+    print('generated mode Scale:', scale)
+    
+    while (c < numNotes):
+      ## ToDo1 Tests inbouwen om te bepalen
+      # - of de sprong (interval tussen newNote en vorige  note) niet groter is als maxInterval (= parameter in halfSteps)
+      # - of de melodie slechts een maximum bevat (maximum instellen met parameter maxNote) 
+      #   alleen note selecteren als er slechts 1 keer deze maximum note in de reeks voorkomt, anders onderdrukken. 
+      # - of het aantal sprongen niet meer is dan parameter maxLeaps
+      # - of de richting nog juist is (na maxSteps), moet de richting omgedraaid zijn
+
+      # get random position
+      posInt = round(random.uniform(0, 7))
+      newNote = scale[posInt]
+      
+      if (c > 0):
+         prevNote =  melodyNoteList[c-1]
+      # debug
+      if (prevNote != ''):
+        differenceNoteValues = getNoteValue(newNote ) - getNoteValue(prevNote)
+        print( 'prevNote:', prevNote, ' getNoteValue: ', str(getNoteValue(prevNote)),   
+              ' newNote: ', newNote , ' getNoteValue: ', str(getNoteValue(newNote )),
+              ' difference NoteValue: ', str(differenceNoteValues)
+             )
+
+      # ToDo2
+      # bereken interval in halfSteps
+
+
+      # if statement toevoevoegen om te bepalen of er al een nieuwe noot toegevoegd kan worden
+      melodyNoteList.append(newNote)
+      c = c + 1
+    
+    return(melodyNoteList)
+# end generate_modal_melody  

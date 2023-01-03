@@ -77,6 +77,12 @@ print('\n')
 scale = mu.generate_mode('locrian', 'c' )
 print('locrian ', 'scale:', scale )
 print('\n')
+
+print('\n')
+m = mu.generate_modal_melody('dorian', 'c', 20)
+print('melodyNoteList: ', m )
+
+
 # Test
 #print("\n")
 #print("debug  in main.py")
