@@ -59,6 +59,9 @@ print('scale:', scale )
 # einde: nog weg halen ###
 
 # Test
+print("\n")
+print("debug  in main.py")
+print("onderstaande code weg halen")
 print("Test function generate_scale()")
 s=mu.generate_scale('c')
 print(s)

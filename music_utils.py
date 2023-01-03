@@ -336,18 +336,20 @@ def get_mode_properties(mode:str):
   return(modes[mode])
 # end set_mode_properties
 
-def generate_mode(mode, finalis):
+
+def generate_mode(mode:str, finalis:str):
   # let op gebruik in eerste instantie een finalis zonder voortekens
   # test ook dat finalis geen voortekens heeft
 
   '''
-  Synopsis
+  Synopsis This function generates a list of notes as strings of a given musical mode.
 
-  generate_mode generates the notes of a musical mode
+  Arguments
+    mode: A given mode 
+    finalis: The tonic of the musical mode 
 
-  params
-
-  return   
+  Returns
+    A list of notes as a string of the musical mode.  
   ''' 
 
   modeProperties = get_mode_properties(mode)
@@ -373,6 +375,10 @@ def generate_mode(mode, finalis):
     # betreffende scaleDegree zit nu in d
     # debug:
     print('scaleDegree: ',d)
+
+    ### ToDo3
+    ### gebruik generate_scale() om '<test>' te vervangen
+    ### s = generate_scale(finalis) 
 
     ### ToDo2
     ### vervang '<test>' voor betreffende element uit een genereerde toonladder 
