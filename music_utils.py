@@ -1,4 +1,4 @@
-# File: muisc_utils.py
+# File: music_utils.py
 # Function: module met diverse utility functies:
 #           - Convert note to noteValue and
 #           - convert noteValue to note
