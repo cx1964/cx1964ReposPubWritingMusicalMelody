@@ -388,6 +388,7 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
 
     if startOnTonic == True:
       melodyNoteList.append(tonic)
+      prevNote=tonic
       c=c+1
     else:
       prevNote = ''
@@ -396,6 +397,9 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
     #debug
     print('generated mode Scale:', scale)
     
+    if stopOnTonic == True:
+      c=c-1
+
     while (c < numNotes):
       ## ToDo1 Tests inbouwen om te bepalen
       # - of de sprong (interval tussen newNote en prevNote) niet groter is als maxInterval (in R4, P5 ed)
@@ -406,10 +410,15 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
       # - of het aantal sprongen niet meer is dan parameter maxLeaps
       # - of de richting nog juist is (na maxSteps), moet de richting omgedraaid zijn
 
+       
       # get random position
       posInt = round(random.uniform(0, 7))
       newNote = scale[posInt]
-      
+      while newNote==tonic and c==0 and startOnTonic == False:
+        # doe opnieuwe net zo lang eerste note is ongelijk tonic
+        posInt = round(random.uniform(0, 7))
+        newNote = scale[posInt]
+
       if (c > 0):
          prevNote =  melodyNoteList[c-1]
       # debug
@@ -429,5 +438,9 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
       melodyNoteList.append(newNote)
       c = c + 1
     
+    if stopOnTonic == True:
+      melodyNoteList.append(tonic)
+      c=c+1
+
     return(melodyNoteList)
 # end generate_modal_melody  

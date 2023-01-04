@@ -13,6 +13,8 @@ from datetime import datetime
 tonica='c'
 mode='dorian'
 numNotes=20 # Max 20 en veelvoud van 4 ivm 4/4 maat
+startOnTonic=False #True 
+stopOnTonic=False #True
 
 key_signature = m.key.Key('C') #  lowercase = minor key.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
@@ -90,7 +92,7 @@ myPart_UpperStaff.partName="Piano Upper"
 # ToDo
 
 # ### Maak de noten ###
-cf = music_utils.generate_modal_melody(mode, tonica, numNotes, True, False)
+cf = music_utils.generate_modal_melody(mode, tonica, numNotes, startOnTonic, stopOnTonic)
 cnt=0
 
 for i in range(0, (len(cf)), 1):
