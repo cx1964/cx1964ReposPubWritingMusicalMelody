@@ -398,7 +398,7 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
     print('generated mode Scale:', scale)
     
     if stopOnTonic == True:
-      c=c-1
+      numNotes=numNotes-1
 
     while (c < numNotes):
       ## ToDo1 Tests inbouwen om te bepalen
