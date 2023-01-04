@@ -90,7 +90,7 @@ myPart_UpperStaff.partName="Piano Upper"
 # ToDo
 
 # ### Maak de noten ###
-cf = music_utils.generate_modal_melody(mode, tonica, numNotes)
+cf = music_utils.generate_modal_melody(mode, tonica, numNotes, True, False)
 cnt=0
 
 for i in range(0, (len(cf)), 1):

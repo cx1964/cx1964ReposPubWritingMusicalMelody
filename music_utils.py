@@ -382,10 +382,15 @@ def generate_mode(mode:str, finalis:str):
 # End generate_mode     
 
 
-def generate_modal_melody(mode:str, tonic:str, numNotes:int):
+def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, stopOnTonic:bool):
     melodyNoteList = list()
     c = 0
-    prevNote = ''
+
+    if startOnTonic == True:
+      melodyNoteList.append(tonic)
+      c=c+1
+    else:
+      prevNote = ''
 
     scale = generate_mode(mode, tonic)
     #debug
