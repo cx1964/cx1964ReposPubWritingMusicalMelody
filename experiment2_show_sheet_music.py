@@ -6,19 +6,19 @@
 import music21 as m
 import music_utils
 from datetime import datetime
-import random
+##import random
 
 
 # ###  BEGIN Instellingen ###
-tonica="a"
-startOctaafNummerTonica=4 # start octaafnummer van de tonica
-startOktaafNummerInt = 4 # ondergrens oktaafnummer voor genereren noten
-eindeOktaafNummerInt = 5 # bovengrens oktaafnummer voor genereren noten
-aantalMaten=5
-key_signature = m.key.Key('a') #  lowercase = minor key.
+tonica='c'
+mode='dorian'
+numNotes=20 # Max 20 en veelvoud van 4 ivm 4/4 maat
+
+key_signature = m.key.Key('C') #  lowercase = minor key.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
 onderDrukVoorTekens = True # boolean
 aantalKwartNotenInMaat=4
+
 score_title = "Gegenereerde Cantus Firmus "
 subtitle = "sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.git"
 composer = 'Claude la Fontaine'
@@ -47,12 +47,12 @@ meta_data.title = score_title
 # YYYY/mm/dd
 d1 = datetime.today().strftime("%Y/%m/%d")
 meta_data.date = str(d1)
-#meta_data.composer  = subtitle 
+meta_data.composer = 'Mode: '+mode+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")"
 #meta_data.copywrite = 'bla' # composer+" ("+str(d1)+")"
 
 # Create score
 # zie: https://web.mit.edu/music21/doc/usersGuide/usersGuide_06_stream2.html
-estimatedScore = m.stream.Stream()
+genScore = m.stream.Stream()
 
 upperStaffClef=m.clef.TrebleClef()
 lowerStaffClef=m.clef.BassClef()
@@ -90,7 +90,7 @@ myPart_UpperStaff.partName="Piano Upper"
 # ToDo
 
 # ### Maak de noten ###
-cf = music_utils.generate_modal_melody('dorian', 'c', 20)
+cf = music_utils.generate_modal_melody(mode, tonica, numNotes)
 cnt=0
 
 for i in range(0, (len(cf)), 1):
@@ -100,13 +100,13 @@ for i in range(0, (len(cf)), 1):
    cnt=cnt+1           
 
 # Voeg Upperstaff aan bladmuziek 
-estimatedScore.insert(0, meta_data)
-estimatedScore.insert(1, myPart_UpperStaff)
+genScore.insert(0, meta_data)
+genScore.insert(1, myPart_UpperStaff)
 # Toon de genereerde bladmuziek
 # maak pdf aan
-estimatedScore.write('musicxml.pdf', fp="./output.pdf")
+genScore.write('musicxml.pdf', fp="./output.pdf")
 
 # roep musescore aan
-estimatedScore.show()
+genScore.show()
 ### Einde Code
  
