@@ -410,7 +410,8 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int):
       # debug
       if (prevNote != ''):
         differenceNoteValues = getNoteValue(newNote ) - getNoteValue(prevNote)
-        print( 'prevNote:', prevNote, ' getNoteValue: ', str(getNoteValue(prevNote)),   
+        print('in music_utils  functie <generate_modal_melody() ',
+              'prevNote:', prevNote, ' getNoteValue: ', str(getNoteValue(prevNote)),   
               ' newNote: ', newNote , ' getNoteValue: ', str(getNoteValue(newNote )),
               ' difference NoteValue ([in half steps]): ', str(differenceNoteValues)
              )
