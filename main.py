@@ -18,15 +18,18 @@ stopOnTonic=True
 
 key_signature = m.key.Key('C') #  lowercase = minor key.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
+noteDuration="quarter" #"whole"
 onderDrukVoorTekens = True # boolean
-aantalKwartNotenInMaat=4
+time_signature="C" # breve
+                   # nog uitzoeken hoe alla breve ¢ = 2/2 https://en.wikipedia.org/wiki/Alla_breve
+#aantalKwartNotenInMaat=4
+#time_signature = str(aantalKwartNotenInMaat)+"/4"
+
 
 score_title = "Gegenereerde Cantus Firmus "
 subtitle = "sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.git"
 composer = 'Claude la Fontaine'
 # ###  EINDE Instellingen ###
-
-time_signature = str(aantalKwartNotenInMaat)+"/4"
 
 # Instellen van de Environment
 # Zie: https://web.mit.edu/music21/doc/usersGuide/usersGuide_24_environment.html#usersguide-24-environment
@@ -97,7 +100,7 @@ cnt=0
 
 for i in range(0, (len(cf)), 1):
    nootStr=cf[cnt]
-   myNote=m.note.Note(nootStr, type="quarter")
+   myNote=m.note.Note(nootStr, type=noteDuration)
    myPart_UpperStaff.insert(cnt, myNote) 
    cnt=cnt+1           
 
