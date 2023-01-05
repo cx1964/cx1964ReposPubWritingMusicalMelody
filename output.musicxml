@@ -23,12 +23,12 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pce219946d89c93c4c6ed8020e693dcd2">
+    <score-part id="P422f0ff25b75fdbe431e68db0109e6fb">
       <part-name>Piano Upper</part-name>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pce219946d89c93c4c6ed8020e693dcd2">
+  <part id="P422f0ff25b75fdbe431e68db0109e6fb">
     <!--========================= Measure 1 ==========================-->
     <measure number="1">
       <attributes>
@@ -59,7 +59,7 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     <measure number="2">
       <note>
         <pitch>
-          <step>F</step>
+          <step>G</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -70,7 +70,7 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     <measure number="3">
       <note>
         <pitch>
-          <step>G</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -81,7 +81,7 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     <measure number="4">
       <note>
         <pitch>
-          <step>G</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -92,7 +92,7 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     <measure number="5">
       <note>
         <pitch>
-          <step>D</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -101,17 +101,6 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     </measure>
     <!--========================= Measure 6 ==========================-->
     <measure number="6">
-      <note>
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>40320</duration>
-        <type>whole</type>
-      </note>
-    </measure>
-    <!--========================= Measure 7 ==========================-->
-    <measure number="7">
       <note>
         <pitch>
           <step>B</step>
@@ -123,22 +112,35 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
         <accidental>flat</accidental>
       </note>
     </measure>
-    <!--========================= Measure 8 ==========================-->
-    <measure number="8">
+    <!--========================= Measure 7 ==========================-->
+    <measure number="7">
       <note>
         <pitch>
-          <step>D</step>
+          <step>A</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
         <type>whole</type>
       </note>
     </measure>
+    <!--========================= Measure 8 ==========================-->
+    <measure number="8">
+      <note>
+        <pitch>
+          <step>E</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>40320</duration>
+        <type>whole</type>
+        <accidental>flat</accidental>
+      </note>
+    </measure>
     <!--========================= Measure 9 ==========================-->
     <measure number="9">
       <note>
         <pitch>
-          <step>F</step>
+          <step>G</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -149,7 +151,7 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     <measure number="10">
       <note>
         <pitch>
-          <step>C</step>
+          <step>A</step>
           <octave>4</octave>
         </pitch>
         <duration>40320</duration>
@@ -158,6 +160,17 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     </measure>
     <!--========================= Measure 11 =========================-->
     <measure number="11">
+      <note>
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>40320</duration>
+        <type>whole</type>
+      </note>
+    </measure>
+    <!--========================= Measure 12 =========================-->
+    <measure number="12">
       <note print-object="no" print-spacing="yes">
         <rest />
         <duration>10080</duration>
