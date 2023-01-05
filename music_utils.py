@@ -8,6 +8,18 @@
 import music21 as m
 import random
 
+def initcap(s:str):
+  """
+  Synposis: This function creates a string with the first letter in uppercase and all other letters in lowercase.
+
+  Parameters:
+    string: A string
+
+  Returns:
+    A string with the first letter in uppercase and all other letters in lowercase.    
+  """
+  return(str(s[0].upper+s[1:].lower()))
+
 def getNoteValue(noteName):
     # Convert a NoteName in a numeric value
     # In music a flat is notated as -
@@ -402,14 +414,25 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
 
     while (c < numNotes):
       ## ToDo1 Tests inbouwen om te bepalen
-      # - of de sprong (interval tussen newNote en prevNote) niet groter is als maxInterval (in R4, P5 ed)
-      #   en de test uitvoeren om maxInterval om te rekenen naar halfSteps en dit vergelijken met
-      #   verschil in notevalues tussen newNote en prevNote 
-      # - of de melodie slechts een maximum bevat (maximum instellen met parameter maxNote) 
-      #   alleen note selecteren als er slechts 1 keer deze maximum note in de reeks voorkomt, anders onderdrukken. 
-      # - of het aantal sprongen niet meer is dan parameter maxLeaps
-      # - of de richting nog juist is (na maxSteps), moet de richting omgedraaid zijn
-
+      # From these cantus, notice how the general musical characteristics of smoothness, melodic integrity, 
+      # variety, and motion towards a goal are worked out in specific characteristics. The following characteristics
+      # are typical of all well formed cantus firmi:
+      #  1. length of about 8–16 notes -- already implemented 
+      #  2. arhythmic (all whole notes; no long or short notes) -- already implemented
+      #  3. begin and end on do -- already implemented
+      #  4. approach final tonic by step (usually re–do, sometimes ti–do) 
+      #  5. all note-to-note progressions are melodic consonances 
+      #  6. range (interval between lowest and highest notes) of no more than a tenth, usually less than an octave 
+      #  7. a single climax (high point) that appears only once in the melody 
+      #  8. clear logical connection and smooth shape from beginning to climax to ending 
+      #  9. mostly stepwise motion, but with some leaps (mostly small leaps) 
+      # 10. no repetition of “motives” or “licks” 
+      # 11. any large leaps (fourth or larger) are followed by step in opposite direction 
+      # 12. no more than two leaps in a row; no consecutive leaps in the same direction (Fux’s F-major cantus
+      #     is an exception, where the back-to-back descending leaps outline a consonant triad.) 
+      # 13. the leading tone progresses to the tonic 
+      # 14. in minor, the leading tone only appears in the penultimate bar; the raised submediant is only used
+      #     when progressing to that leading tone
        
       # get random position
       posInt = round(random.uniform(0, 7))

@@ -6,17 +6,20 @@
 import music21 as m
 import music_utils
 from datetime import datetime
-##import random
+import random
 
 
 # ###  BEGIN Instellingen ###
 tonica='c'
 mode='dorian'
-numNotes=20 # Max 20 en veelvoud van 4 ivm 4/4 maat
+minNumNotes = 8 # Is essential for well formed cantus firmus
+maxNumNotes = 16 # Is essential for well formed cantus firmus
 startOnTonic=True # True is essential for well formed cantus firmus 
 stopOnTonic=True  # True is essential for well formed cantus firmus 
 
 key_signature = m.key.Key('C') #  lowercase = minor key.
+numNotes=round(random.uniform(minNumNotes, maxNumNotes)) # When using a append to add notes
+                                                         # you can use any number of notes.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
 noteDuration="whole" # "quater"
 onderDrukVoorTekens = True # boolean
@@ -52,7 +55,7 @@ meta_data.title = score_title
 # YYYY/mm/dd
 d1 = datetime.today().strftime("%Y/%m/%d")
 meta_data.date = str(d1)
-meta_data.composer = 'Mode: '+mode+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")" + subtitle
+meta_data.composer = 'Mode: '+music_utils.initcap(mode)+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")" + subtitle
                      
 #meta_data.copywrite = 'bla' # composer+" ("+str(d1)+")"
 
