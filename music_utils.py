@@ -400,6 +400,51 @@ def generate_mode(mode:str, finalis:str):
 # End generate_mode     
 
 
+def create_unique_maximum(numNotes:int, tonic:str, mode:str, cantus_firmus:list):
+  '''
+  Synopsis This function creates one unique maximum in the given cantus firmus and eliminates all other maxNotes.
+
+  Arguments
+    numNotes: The number of notes in the cantus firmus 
+    tonic:    The tonic of the cantus firmus
+    mode:     The mode used for the cabtus firmus
+    cantus_firmus: The cantus firmus 
+
+  Returns
+    The location of the maxNote, the maxNote value and the new cantus firmus with a unique maximum.  
+  ''' 
+
+  # Calculate the location of the maxNote in the cantus firmus
+  posMax=random.uniform(0.25, 0.75)
+  #debug
+  #print('posMax:', posMax)
+  locMax=round(numNotes*posMax)
+  #debug 
+  #print('loc:', locMax)
+  
+  # Determine the maxNote from in the modal scale and place this maxNote in the cantus firmus
+  scale = generate_mode(mode, tonic)
+  # debug
+  #print('scale',scale)
+  maxNote=scale[6]
+  cantus_firmus[locMax]=maxNote 
+  #debug
+  #print('cf orgineel:', cf)
+
+  # Eliminate all other maxNotes in the  cantus firmus
+  t=0
+  for nt in cantus_firmus:
+    if (t != locMax):
+      # Doe alleen iets als je niet op de positie van maxNote bent
+      if (cantus_firmus[t] == maxNote):
+         # maak note lager om te zorgen dat er slechts 1 maxNote is
+         cantus_firmus[t] = scale[5]  
+    t=t+1    
+
+  return(locMax, maxNote, cantus_firmus)
+  # end create_unique_maximum
+
+
 def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, stopOnTonic:bool):
     melodyNoteList = list()
     c = 0
@@ -426,10 +471,13 @@ def generate_modal_melody(mode:str, tonic:str, numNotes:int, startOnTonic:bool, 
       #  1. length of about 8–16 notes -- already implemented 
       #  2. arhythmic (all whole notes; no long or short notes) -- already implemented
       #  3. begin and end on do -- already implemented
+
       #  4. approach final tonic by step (usually re–do, sometimes ti–do) 
       #  5. all note-to-note progressions are melodic consonances 
       #  6. range (interval between lowest and highest notes) of no more than a tenth, usually less than an octave 
-      #  7. a single climax (high point) that appears only once in the melody 
+      
+      #  7. a single climax (high point) that appears only once in the melody -- implemented by music_utils.create_unique_maximum()
+      
       #  8. clear logical connection and smooth shape from beginning to climax to ending 
       #  9. mostly stepwise motion, but with some leaps (mostly small leaps) 
       # 10. no repetition of “motives” or “licks” 

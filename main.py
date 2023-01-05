@@ -101,6 +101,8 @@ myPart_UpperStaff.partName="Piano Upper"
 
 # ### Maak de noten ###
 cf = music_utils.generate_modal_melody(mode, tonica, numNotes, startOnTonic, stopOnTonic)
+
+l,n,cf=music_utils.create_unique_maximum(numNotes, tonica, mode, cf)
 cnt=0
 
 for i in range(0, (len(cf)), 1):
