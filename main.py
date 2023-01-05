@@ -21,9 +21,9 @@ key_signature = m.key.Key('C') #  lowercase = minor key.
 numNotes=round(random.uniform(minNumNotes, maxNumNotes)) # When using a append to add notes
                                                          # you can use any number of notes.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
-noteDuration="half" # "whole" # "quarter"
+noteDuration="whole"# "whole", "half", "quarter"
 onderDrukVoorTekens = True # boolean
-time_signature="cut" # breve
+time_signature="c" # use string "c" for breve
                    # use string "cut" for alla breve ¢ = 2/2
                    # https://en.wikipedia.org/wiki/Alla_breve
 #aantalKwartNotenInMaat=4
