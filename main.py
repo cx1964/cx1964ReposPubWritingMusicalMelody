@@ -21,10 +21,11 @@ key_signature = m.key.Key('C') #  lowercase = minor key.
 numNotes=round(random.uniform(minNumNotes, maxNumNotes)) # When using a append to add notes
                                                          # you can use any number of notes.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
-noteDuration="whole" # "quater"
+noteDuration="half" # "whole" # "quarter"
 onderDrukVoorTekens = True # boolean
-time_signature="C" # breve
-                   # nog uitzoeken hoe alla breve ¢ = 2/2 https://en.wikipedia.org/wiki/Alla_breve
+time_signature="cut" # breve
+                   # use string "cut" for alla breve ¢ = 2/2
+                   # https://en.wikipedia.org/wiki/Alla_breve
 #aantalKwartNotenInMaat=4
 #time_signature = str(aantalKwartNotenInMaat)+"/4"
 
@@ -57,7 +58,7 @@ d1 = datetime.today().strftime("%Y/%m/%d")
 meta_data.date = str(d1)
 meta_data.composer = 'Mode: '+music_utils.initcap(mode)+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")" + subtitle
                      
-#meta_data.copywrite = 'bla' # composer+" ("+str(d1)+")"
+#meta_data.copywrite = '...'
 
 # Create score
 # zie: https://web.mit.edu/music21/doc/usersGuide/usersGuide_06_stream2.html
