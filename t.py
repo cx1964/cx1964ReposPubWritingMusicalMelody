@@ -1,5 +1,5 @@
-# File: main.py
-# Function: python script tbv tonen van een genereerde Cantus Firmus melody volgens de regels van het Contrapunt
+# File: t.py
+# Function: python script voor experimenten
 # Opmerking: 
 #            
 
@@ -13,12 +13,12 @@ from datetime import datetime
 tonica='c'
 mode='dorian'
 numNotes=20 # Max 20 en veelvoud van 4 ivm 4/4 maat
-startOnTonic=True # True is essential for well formed cantus firmus 
-stopOnTonic=True  # True is essential for well formed cantus firmus 
+startOnTonic=True 
+stopOnTonic=True
 
 key_signature = m.key.Key('C') #  lowercase = minor key.
 maxIntervalGrootte=4 # In aantal k2.  4 => G3 # max interval tussen de noten
-noteDuration="whole" # "quater"
+noteDuration="whole" #"quarter" #"whole"
 onderDrukVoorTekens = True # boolean
 time_signature="C" # breve
                    # nog uitzoeken hoe alla breve ¢ = 2/2 https://en.wikipedia.org/wiki/Alla_breve
@@ -27,7 +27,7 @@ time_signature="C" # breve
 
 
 score_title = "Gegenereerde Cantus Firmus "
-subtitle = "\nsources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.git"
+subtitle = "sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.git"
 composer = 'Claude la Fontaine'
 # ###  EINDE Instellingen ###
 
@@ -52,8 +52,7 @@ meta_data.title = score_title
 # YYYY/mm/dd
 d1 = datetime.today().strftime("%Y/%m/%d")
 meta_data.date = str(d1)
-meta_data.composer = 'Mode: '+mode+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")" + subtitle
-                     
+meta_data.composer = 'Mode: '+mode+ '          Gegenereerd door: '+ composer+" ("+str(d1)+")"
 #meta_data.copywrite = 'bla' # composer+" ("+str(d1)+")"
 
 # Create score
@@ -96,14 +95,13 @@ myPart_UpperStaff.partName="Piano Upper"
 # ToDo
 
 # ### Maak de noten ###
-cf = music_utils.generate_modal_melody(mode, tonica, numNotes, startOnTonic, stopOnTonic)
+cf = ['c', 'd', 'e', 'f', 'g']
 cnt=0
 
 for i in range(0, (len(cf)), 1):
    nootStr=cf[cnt]
    myNote=m.note.Note(nootStr, type=noteDuration)
-   #myPart_UpperStaff.insert(cnt, myNote) # use insert for posiitioning a note on a specific posistion
-   myPart_UpperStaff.append(myNote)  # append positions automatically
+   myPart_UpperStaff.append(myNote) 
    cnt=cnt+1           
 
 # Voeg Upperstaff aan bladmuziek 
