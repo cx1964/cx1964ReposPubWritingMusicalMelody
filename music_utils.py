@@ -18,7 +18,13 @@ def initcap(s:str):
   Returns:
     A string with the first letter in uppercase and all other letters in lowercase.    
   """
-  return(str(s[0].upper+s[1:].lower()))
+  sl = str(s[0].upper())
+  sr = s[1:]
+  t=""
+  for st in sr:
+    t = t + st.lower()
+
+  return(sl+t)
 
 def getNoteValue(noteName):
     # Convert a NoteName in a numeric value
