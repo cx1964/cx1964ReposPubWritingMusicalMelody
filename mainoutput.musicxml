@@ -23,12 +23,12 @@ sources: git clone https://github.com/cx1964/cx1964ReposPubWritingMusicalMelody.
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pc6d96883975e4943e5888012fc884661">
+    <score-part id="P8f5be7f74c03c0342325ee5d440232f4">
       <part-name>Piano Upper</part-name>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pc6d96883975e4943e5888012fc884661">
+  <part id="P8f5be7f74c03c0342325ee5d440232f4">
     <!--========================= Measure 1 ==========================-->
     <measure number="1">
       <attributes>

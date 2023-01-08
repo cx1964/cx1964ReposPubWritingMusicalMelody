@@ -16,6 +16,7 @@ minNumNotes = 8 # Is essential for well formed cantus firmus
 maxNumNotes = 16 # Is essential for well formed cantus firmus
 startOnTonic=True # True is essential for well formed cantus firmus 
 stopOnTonic=True  # True is essential for well formed cantus firmus 
+numMeasuresPerStaff = 4
 
 key_signature = m.key.Key('C') #  lowercase = minor key.
 numNotes=round(random.uniform(minNumNotes, maxNumNotes)) # When using a append to add notes
@@ -107,19 +108,39 @@ cnt=0
 
 for i in range(0, (len(cf)), 1):
    nootStr=cf[cnt]
+   msr = m.stream.Measure(number=cnt+1 )
+   # create linebreaks on the staff
+   print('cnt=',cnt)
+   if (((cnt+1) % numMeasuresPerStaff) == 0 ):
+      print('linebreak')
+      msr.append(m.layout.SystemLayout(isNew=True))
+
    myNote=m.note.Note(nootStr, type=noteDuration)
-   #myPart_UpperStaff.insert(cnt, myNote) # use insert for posiitioning a note on a specific posistion
-   myPart_UpperStaff.append(myNote)  # append positions automatically
+   #save:myPart_UpperStaff.insert(cnt, myNote) # use insert for posiitioning a note on a specific posistion
+   msr.append(myNote)
+   #myPart_UpperStaff.append(myNote)  # append positions automatically
+   myPart_UpperStaff.append(msr)
    cnt=cnt+1           
 
 # Voeg Upperstaff aan bladmuziek 
 genScore.insert(0, meta_data)
 genScore.insert(1, myPart_UpperStaff)
 # Toon de genereerde bladmuziek
+
+# debug
+#genScore.show('text')
+
 # maak pdf aan
 genScore.write('musicxml.pdf', fp="./output.pdf")
+genScore.write('musicxml', fp="./mainoutput.musicxml")
+#genScore.write('midi', fp="./output.midi")
 
-# roep musescore aan
-genScore.show()
+# roep MuseScore aan in MuseScore
+# Letop als men de output gelijk opent mbv genScore.show()
+# dan is de opmaak zoals linebreaks (tgv m.layout.SystemLayout(isNew=True) niet zichtbaar
+#genScore.show()
+
+print('Voor output met layout formatting open mainoutput.musicxml in MuseScore')
+
 ### Einde Code
  

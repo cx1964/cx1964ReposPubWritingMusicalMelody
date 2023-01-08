@@ -4,11 +4,11 @@
   <work>
     <work-title>Untitled score</work-title>
   </work>
-  <movement-title>importtest.musicxml</movement-title>
+  <movement-title>importtest.ms4.musicxml</movement-title>
   <identification>
     <creator type="composer">Composer / arranger</creator>
     <encoding>
-      <encoding-date>2023-01-06</encoding-date>
+      <encoding-date>2023-01-08</encoding-date>
       <software>music21 v.8.1.0</software>
       <software>MuseScore 4.0.0</software>
     </encoding>
@@ -23,11 +23,11 @@
     <score-part id="P1">
       <part-name>Piano</part-name>
       <part-abbreviation>Pno.</part-abbreviation>
-      <score-instrument id="I9a9d6ec5b19bd7033e23e80087335d0d">
+      <score-instrument id="I13db4366bfb960fd4539664c5ab9428a">
         <instrument-name>Piano</instrument-name>
         <instrument-abbreviation>Pno</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I9a9d6ec5b19bd7033e23e80087335d0d">
+      <midi-instrument id="I13db4366bfb960fd4539664c5ab9428a">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
       </midi-instrument>
@@ -100,10 +100,7 @@
     </measure>
     <!--========================= Measure 3 ==========================-->
     <measure number="3">
-      <!--========================= lay-out ==========================-->
-      <!--dit zorgt voor measure op de volgende staff-->
       <print new-system="yes" />
-      <!--========================= lay-out ==========================-->
       <note>
         <pitch>
           <step>E</step>
